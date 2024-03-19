@@ -1,8 +1,10 @@
 import React from 'react';
-import { useState } from "react"
+import { useState, useRef, useEffect } from "react"
 import '../styles/Register.css'
 
 const Register = () => {
+
+    const countRef = useRef(0);
 
     const [input, setInput] = useState({
         name: "",
@@ -12,6 +14,8 @@ const Register = () => {
     });
 
     const onChange = (e) => {
+        countRef.current++;
+        console.log(countRef.current);
         setInput({
             ...input,
             [e.target.name]: e.target.value
